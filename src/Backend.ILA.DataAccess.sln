@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Orms", "Orms", "{25D9DF79-AD20-4035-9DF0-4561EA84B1B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EfCore", "EfCore", "{F63004C2-8144-45DB-BC0D-345CE5FEB7E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commands", "Commands", "{3F350050-1ABA-41E9-9657-5BC07591EB0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UpdateOneToOne", "UpdateOneToOne", "{5106D56C-1EB7-460D-937C-B91873410FBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCore.Commands.RelationalUpdate", "EfCore.Commands.RelationalUpdate\EfCore.Commands.RelationalUpdate.csproj", "{C0FD0D56-F07C-4BF4-91FE-9E407F55143F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F63004C2-8144-45DB-BC0D-345CE5FEB7E8} = {25D9DF79-AD20-4035-9DF0-4561EA84B1B8}
+		{3F350050-1ABA-41E9-9657-5BC07591EB0C} = {F63004C2-8144-45DB-BC0D-345CE5FEB7E8}
+		{5106D56C-1EB7-460D-937C-B91873410FBD} = {3F350050-1ABA-41E9-9657-5BC07591EB0C}
+		{C0FD0D56-F07C-4BF4-91FE-9E407F55143F} = {3F350050-1ABA-41E9-9657-5BC07591EB0C}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0FD0D56-F07C-4BF4-91FE-9E407F55143F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0FD0D56-F07C-4BF4-91FE-9E407F55143F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0FD0D56-F07C-4BF4-91FE-9E407F55143F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0FD0D56-F07C-4BF4-91FE-9E407F55143F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
