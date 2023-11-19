@@ -9,7 +9,7 @@ public class AuthorBiographyConfiguration : IEntityTypeConfiguration<AuthorBiogr
     public void Configure(EntityTypeBuilder<AuthorBiography> builder)
     {
         builder
-            .HasOne<Author>()
+            .HasOne<Author>(biography => biography.Author)
             .WithOne(author => author.Biography)
             .HasForeignKey<AuthorBiography>(biography => biography.AuthorId);
     }

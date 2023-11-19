@@ -30,18 +30,21 @@ public class RemoveRelationExample
         andrew.Biography = null;
         await _dbContext.SaveChangesAsync();
 
+        // batch - ko'plikda
+        // bulk - ko'plikda
+        
         // disconnected state
         await _dbContext.AuthorBiographies.Where(biography => biography.AuthorId == mark.Id).ExecuteDeleteAsync();
 
         // one-to-many relation
 
         // connected state
-        andrew.Books.First().Reviews.RemoveAt(0);
-
+        andrew.Books.First().Reviews = null;
         await _dbContext.SaveChangesAsync();
 
         // disconnected state
-        await _dbContext.BookReviews.Include(review => review.Book)
+        await _dbContext.BookReviews
+            .Include(review => review.Book)
             .ThenInclude(book => book.Authors)
             .Where(review => review.Book.Authors.Any(author => author.Id.Equals(mark.Id)))
             .ExecuteDeleteAsync();

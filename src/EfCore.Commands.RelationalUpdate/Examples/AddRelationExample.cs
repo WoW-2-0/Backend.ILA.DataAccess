@@ -4,6 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EfCore.Commands.RelationalUpdate.Examples;
 
+// relation configuration
+// add, replace, remove - 
+
+// author and author biography - 
+
 public class AddRelationExample
 {
     private readonly LibraryDbContext _dbContext;
@@ -25,18 +30,21 @@ public class AddRelationExample
         // one-to-one relation
 
         // connected state update
-        andrew.Biography = new AuthorBiography
+        var andrewBiography = new AuthorBiography
         {
             Content = "This is the biography of the author"
         };
+        andrew.Biography = andrewBiography;
         await _dbContext.SaveChangesAsync();
 
         // disconnected state update
-        _dbContext.Add(new AuthorBiography
+        var authorBiography = new AuthorBiography
         {
             AuthorId = Guid.Parse("E0817981-A236-4836-BBDD-326DDB6565D3"),
             Content = "This is the biography of the author"
-        });
+        };
+
+        _dbContext.Add(authorBiography);
         await _dbContext.SaveChangesAsync();
 
         // many-to-many relation
@@ -52,6 +60,7 @@ public class AddRelationExample
 
         // disconnected state
         _dbContext.Authors.Attach(mark);
+        var test = _dbContext.Entry(mark).State;
         _dbContext.Books.Add(new Book
         {
             Authors = new List<Author>(new[] { mark }),

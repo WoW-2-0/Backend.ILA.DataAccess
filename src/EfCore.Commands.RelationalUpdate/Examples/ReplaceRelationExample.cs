@@ -16,7 +16,8 @@ public class ReplaceRelationExample
     public async ValueTask ExecuteAsync()
     {
         var andrew =
-            await _dbContext.Authors.Include(author => author.Books)
+            await _dbContext.Authors.Include(author => author.Biography)
+                .Include(author => author.Books)
                 .OrderBy(author => author.Id)
                 .FirstOrDefaultAsync() ?? throw new InvalidOperationException();
 
@@ -46,14 +47,7 @@ public class ReplaceRelationExample
         // many-to-many relation
 
         // connected state
-        var booksToDelete = _dbContext.AuthorBooks.Include(authorBook => authorBook.Book)
-            .Where(authorBook => authorBook.AuthorId == andrew.Id)
-            .Select(authorBook => authorBook.BookId)
-            .ToList();
-
-        _dbContext.Books.RemoveRange(_dbContext.Books.Where(book => booksToDelete.Contains(book.Id)));
-        await _dbContext.SaveChangesAsync();
-
+        await _dbContext.AuthorBooks.Where(authorBook => authorBook.AuthorId == mark.Id).ExecuteDeleteAsync();
         andrew.Books = new List<Book>
         {
             new()
@@ -65,21 +59,17 @@ public class ReplaceRelationExample
         };
         await _dbContext.SaveChangesAsync();
 
-        // disconnected state 
-        booksToDelete = _dbContext.AuthorBooks.Include(authorBook => authorBook.Book)
-            .Where(authorBook => authorBook.AuthorId == mark.Id)
-            .Select(authorBook => authorBook.BookId)
-            .ToList();
-
-        await _dbContext.Books.Where(book => booksToDelete.Contains(book.Id)).ExecuteDeleteAsync();
-
+        // disconnected state
+        await _dbContext.AuthorBooks.Where(authorBook => authorBook.AuthorId == mark.Id).ExecuteDeleteAsync();
         _dbContext.Authors.Attach(mark);
-        mark.Books.Add(new Book
+        _dbContext.Books.Add(new Book
         {
+            Authors = new List<Author>(new[] { mark }),
             Title = "C# 11 and .NET 7",
             Genre = "Programming",
             Pages = 1200
         });
+
         await _dbContext.SaveChangesAsync();
         _dbContext.Entry(mark).State = EntityState.Detached;
 
@@ -104,14 +94,14 @@ public class ReplaceRelationExample
 
         // disconnected state
         _dbContext.Authors.Attach(mark);
-        
+
         mark.Books.First()
             .Reviews.Add(new BookReview
             {
                 Review = "C# 11 and .NET 7 is a great book"
             });
         await _dbContext.SaveChangesAsync();
-        
+
         mark.Books.First().Reviews = new List<BookReview>(new[]
         {
             new BookReview
@@ -124,6 +114,6 @@ public class ReplaceRelationExample
         _dbContext.Entry(mark).State = EntityState.Detached;
 
         var andewsState = _dbContext.Entry(andrew).State;
-        var marksState = _dbContext.Entry(andrew).State;
+        var marksState = _dbContext.Entry(mark).State;
     }
 }
