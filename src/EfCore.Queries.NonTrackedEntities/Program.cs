@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 var services = new ServiceCollection();
 
 services.AddDbContext<LibraryDbContext>(options =>
-    options.UseNpgsql("Host=localhost;Port=5432;Database=NonTrackedEntitiesExample;Username=postgres;Password=postgres");
+    options.UseNpgsql("Host=localhost;Port=5432;Database=NonTrackedEntitiesExample;Username=postgres;Password=postgres"));
 
 var serviceProvider = services.BuildServiceProvider();
 

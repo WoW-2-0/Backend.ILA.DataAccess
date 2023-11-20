@@ -22,6 +22,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NonTrackedEntities", "NonTr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCore.Queries.NonTrackedEntities", "EfCore.Queries.NonTrackedEntities\EfCore.Queries.NonTrackedEntities.csproj", "{A0FCAD25-DD5A-4E47-BB3C-9A67D257807C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SplitQueries", "SplitQueries", "{2CD3622D-53F5-4698-81FD-1F942DC78ADE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfCore.Queries.SplitQueries", "EfCore.Queries.SplitQueries\EfCore.Queries.SplitQueries.csproj", "{A6557792-AA9F-4E9E-B5A0-88957086A8A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +42,8 @@ Global
 		{65F61D4B-7629-4B3C-B109-416F77F64FB9} = {30349DA5-B25B-4ED7-8722-27330CE2AF8B}
 		{89A5C44B-64A3-43BF-B6BB-B9A87F521423} = {30349DA5-B25B-4ED7-8722-27330CE2AF8B}
 		{A0FCAD25-DD5A-4E47-BB3C-9A67D257807C} = {89A5C44B-64A3-43BF-B6BB-B9A87F521423}
+		{2CD3622D-53F5-4698-81FD-1F942DC78ADE} = {30349DA5-B25B-4ED7-8722-27330CE2AF8B}
+		{A6557792-AA9F-4E9E-B5A0-88957086A8A9} = {2CD3622D-53F5-4698-81FD-1F942DC78ADE}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C0FD0D56-F07C-4BF4-91FE-9E407F55143F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -52,5 +58,9 @@ Global
 		{A0FCAD25-DD5A-4E47-BB3C-9A67D257807C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0FCAD25-DD5A-4E47-BB3C-9A67D257807C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0FCAD25-DD5A-4E47-BB3C-9A67D257807C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6557792-AA9F-4E9E-B5A0-88957086A8A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6557792-AA9F-4E9E-B5A0-88957086A8A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6557792-AA9F-4E9E-B5A0-88957086A8A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6557792-AA9F-4E9E-B5A0-88957086A8A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
