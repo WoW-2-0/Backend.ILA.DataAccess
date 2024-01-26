@@ -1,4 +1,4 @@
-﻿namespace LocalIdentity.SimpleInfra.Infrastructure.Common.Settings;
+﻿namespace EfCore.AuditInterceptor.Infrastructure.Common.Settings;
 
 public class RequestUserContextSettings
 {

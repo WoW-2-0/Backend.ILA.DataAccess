@@ -1,4 +1,4 @@
-﻿namespace LocalIdentity.SimpleInfra.Domain.Constants;
+﻿namespace EfCore.AuditInterceptor.Domain.Constants;
 
 public static class ClaimConstants
 {

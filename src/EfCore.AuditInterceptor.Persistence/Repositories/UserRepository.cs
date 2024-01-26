@@ -15,8 +15,12 @@ public class UserRepository(IdentityDbContext dbContext) : EntityRepositoryBase<
     public new ValueTask<User> CreateAsync(User user, bool saveChanges = true, CancellationToken cancellationToken = default) =>
         base.CreateAsync(user, saveChanges, cancellationToken);
 
-    public new ValueTask<User> UpdateAsync(User user, bool saveChanges = true, CancellationToken cancellationToken = default) =>
+    public new ValueTask<User> UpdateAsync(User user, bool saveChanges = true, CancellationToken cancellationToken = default) {
+        var test = DbContext.Entry(user).Entity
+        
         base.UpdateAsync(user, saveChanges, cancellationToken);
+        
+    }
 
     public new ValueTask<User?> DeleteByIdAsync(Guid userId, bool saveChanges = true, CancellationToken cancellationToken = default) =>
         base.DeleteByIdAsync(userId, saveChanges, cancellationToken);

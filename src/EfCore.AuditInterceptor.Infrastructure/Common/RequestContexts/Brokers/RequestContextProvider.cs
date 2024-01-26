@@ -1,6 +1,6 @@
 ﻿using EfCore.AuditInterceptor.Application.Common.RequestContexts.Brokers;
 using EfCore.AuditInterceptor.Application.Common.RequestContexts.Models;
-using LocalIdentity.SimpleInfra.Domain.Constants;
+using EfCore.AuditInterceptor.Domain.Constants;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Net.Http.Headers;
 

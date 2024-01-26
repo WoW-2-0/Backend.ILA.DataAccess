@@ -1,6 +1,6 @@
-using LocalIdentity.SimpleInfra.Domain.Brokers;
-using LocalIdentity.SimpleInfra.Domain.Constants;
-using LocalIdentity.SimpleInfra.Infrastructure.Common.Settings;
+using EfCore.AuditInterceptor.Domain.Brokers;
+using EfCore.AuditInterceptor.Domain.Constants;
+using EfCore.AuditInterceptor.Infrastructure.Common.Settings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 

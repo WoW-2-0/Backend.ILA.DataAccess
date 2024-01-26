@@ -1,4 +1,4 @@
-﻿namespace LocalIdentity.SimpleInfra.Domain.Brokers;
+﻿namespace EfCore.AuditInterceptor.Domain.Brokers;
 
 public interface IRequestUserContextProvider
 {
